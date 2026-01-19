@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #definning variables
-readonly name="anshu"
+ name="anshu"
 echo "iam $name"
 name="radha"
 echo "iam $name"
