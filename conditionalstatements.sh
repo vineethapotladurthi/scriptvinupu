@@ -1,6 +1,10 @@
 #!/bin/bash
 
 #definning variables
+readonly name="anshu"
+echo "iam $name"
+name="radha"
+echo "iam $name"
 HOSTNAME=$(hostname)
 
 echo " our server name is:it $HOSTNAME"
