@@ -2,7 +2,7 @@
 
 USER-ID=$(id -u)
 
-if [ USER-ID -ne 0 ]; then
+if [ $USER-ID -ne 0 ]; then
     echo "you have to run the script under root previleges.."
     exit 1
 fi
