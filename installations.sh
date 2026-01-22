@@ -1,8 +1,8 @@
 #!/bin/bash
 
-USER-ID=$(id -u)
+USERID=$(id -u)
 
-if [ $USER-ID -ne 0 ]; then
+if [ $USERID -ne 0 ]; then
     echo "you have to run the script under root previleges.."
     exit 1
 fi
