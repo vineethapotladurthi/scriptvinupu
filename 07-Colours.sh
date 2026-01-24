@@ -1,9 +1,9 @@
 #!/bin/bash
 
 USERID=$(id -u)
-Red="\e[31m"
-Green="\e[32m"
-Normal="\e[0m"
+Red='\e[31m'
+Green='\e[32m'
+Normal='\e[0m'
 log="test.log"
 
 # if [ $USERID -ne 0 ]; then
