@@ -18,16 +18,16 @@ Check_Root(){
 }
 validate(){
     if($1 -ne 0); then
-     echo "$2 ${Red}ERROR failedd.......!"
+     echo -e "$2 ${Red}ERROR failedd.......!"
     else
-        echo "$2 ${Green}SUCCESS here you go successfully...."
+        echo -e "$2 ${Green}SUCCESS here you go successfully...."
     fi
 }
 Check_Root
 dnf list installed git
 validate $? "${Normal} git was ..!" &>>log
 if [ $? -ne 0 ]; then
-    echo " ${Red}ERROR git was not installed on your device let us install git"
+    echo -e " ${Red}ERROR git was not installed on your device let us install git"
     dnf install git -y
     # if [ $? -ne 0 ]; then
     #     echo "git installation was not success"
@@ -37,7 +37,7 @@ if [ $? -ne 0 ]; then
     # fi
     validate $? "${Normal} git installation" &>>log
 else
-    echo " ${Green}SUCCESS git was already iinstalled"
+    echo -e " ${Green}SUCCESS git was already iinstalled"
 fi
 
 # dnf list installed mysql
