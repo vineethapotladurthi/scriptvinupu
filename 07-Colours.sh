@@ -18,9 +18,10 @@ Check_Root(){
 }
 validate(){
     if($1 -ne 0); then
-    echo "$2 $Red failedd.......!"
+     echo "$2 $Red failedd.......!"
     else
-    echo "$2 $Grenn here you go successfully...."
+        echo "$2 $Grenn here you go successfully...."
+    fi
 }
 Check_Root
 dnf list installed git

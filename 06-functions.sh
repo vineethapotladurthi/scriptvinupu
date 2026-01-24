@@ -10,13 +10,14 @@ Check_Root(){
     if [ $USERID -ne 0 ]; then
      echo "you have to run the script under root previleges.."
      exit 1
-     fi
+    fi
 }
 validate(){
     if($1 -ne 0); then
-    echo "$2 failedd.......!"
+     echo "$2 failedd.......!"
     else
-    echo "$2 here you go successfully...."
+        echo "$2 here you go successfully...."
+    fi
 }
 Check_Root
 dnf list installed git
