@@ -10,7 +10,7 @@ log="test.log"
 #     echo "you have to run the script under root previleges.."
 #     exit 1
 # fi
-Check-Root(){
+Check_Root(){
     if [ $USERID -ne 0 ]; then
      echo -e "$Red you have to run the script under root previleges.."
      exit 1
@@ -22,7 +22,7 @@ validate(){
     else
     echo "$2 $Grenn here you go successfully...."
 }
-Check-Root
+Check_Root
 dnf list installed git
 validate $? "$Normal git was ..!" &>>log
 if [ $? -ne 0 ]; then

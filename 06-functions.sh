@@ -6,7 +6,7 @@ USERID=$(id -u)
 #     echo "you have to run the script under root previleges.."
 #     exit 1
 # fi
-Check-Root(){
+Check_Root(){
     if [ $USERID -ne 0 ]; then
      echo "you have to run the script under root previleges.."
      exit 1
@@ -18,7 +18,7 @@ validate(){
     else
     echo "$2 here you go successfully...."
 }
-Check-Root
+Check_Root
 dnf list installed git
 validate $? "git was ..!"
 if [ $? -ne 0 ]; then
