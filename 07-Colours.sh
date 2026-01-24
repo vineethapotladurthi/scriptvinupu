@@ -12,22 +12,22 @@ log="test.log"
 # fi
 Check_Root(){
     if [ $USERID -ne 0 ]; then
-     echo -e "$Red you have to run the script under root previleges.."
+     echo -e "${Red} you have to run the script under root previleges.."
      exit 1
      fi
 }
 validate(){
     if($1 -ne 0); then
-     echo "$2 $Red failedd.......!"
+     echo "$2 ${Red} failedd.......!"
     else
-        echo "$2 $Grenn here you go successfully...."
+        echo "$2 ${Green} here you go successfully...."
     fi
 }
 Check_Root
 dnf list installed git
-validate $? "$Normal git was ..!" &>>log
+validate $? "${Normal} git was ..!" &>>log
 if [ $? -ne 0 ]; then
-    echo " $Red git was not installed on your device let us install git"
+    echo " ${Red} git was not installed on your device let us install git"
     dnf install git -y
     # if [ $? -ne 0 ]; then
     #     echo "git installation was not success"
@@ -35,9 +35,9 @@ if [ $? -ne 0 ]; then
     # else
     #     echo " git installed succcessfully"
     # fi
-    validate $? "$Normal git installation" &>>log
+    validate $? "${Normal} git installation" &>>log
 else
-    echo " $Green git was already iinstalled"
+    echo " ${Green} git was already iinstalled"
 fi
 
 # dnf list installed mysql
