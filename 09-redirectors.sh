@@ -51,17 +51,17 @@ fi
 
 # dnf list installed mysql
 
- if [ $? -ne 0 ]
-  then
-    echo -e "$R $package was not installed on your device let us install $package"&>>LOGFILE
-    dnf install $package -y
-    if [ $? -ne 0 ]
-     then
-        echo -e "$R $package installation was not success"&>>LOGFILE
-        exit 1
-    else
-        echo -e "$G $package installed succcessfully"&>>LOGFILE
-    fi
-else
-    echo -e "$N $package was already iinstalled"&>>LOGFILE
-fi
+#  if [ $? -ne 0 ]
+#   then
+#     echo -e "$R $package was not installed on your device let us install $package"&>>LOGFILE
+#     dnf install $package -y
+#     if [ $? -ne 0 ]
+#      then
+#         echo -e "$R $package installation was not success"&>>LOGFILE
+#         exit 1
+#     else
+#         echo -e "$G $package installed succcessfully"&>>LOGFILE
+#     fi
+# else
+#     echo -e "$N $package was already iinstalled"&>>LOGFILE
+# fi

@@ -37,24 +37,10 @@ if [ $? -ne 0 ]; then
     # else
     #     echo " git installed succcessfully"
     # fi
-    validate $? "$package installation"
 else
     echo " $package was already iinstalled"
 fi
 
 # dnf list installed mysql
 
- if [ $? -ne 0 ]
-  then
-    echo " mysql was not installed on your device let us install mysql"
-    dnf install $package -y
-    if [ $? -ne 0 ]
-     then
-        echo "$package installation was not success"
-        exit 1
-    else
-        echo " $package installed succcessfully"
-    fi
-else
-    echo " $package was already iinstalled"
-fi
+ 
