@@ -21,12 +21,13 @@ validate(){
 }
 Check_Root
 # dnf list installed git
-validate $? "$package was ..!"
+
 for package in $@
 do 
     dnf list installed $package
     echo "the  pakacge are $package"
 done
+validate $? "$package was ..!"
 if [ $? -ne 0 ]; then
     echo " $package was not installed on your device let us install $package"
     dnf install $package -y

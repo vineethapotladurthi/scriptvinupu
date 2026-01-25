@@ -4,7 +4,7 @@ USERID=$(id -u)
 Red='\033[0;31m'
 Green='\033[0;32m'   #'\e[32m'
 Normal='\033[0m'
-log="test.log"
+
 
 # if [ $USERID -ne 0 ]; then
 #     echo "you have to run the script under root previleges.."
@@ -25,7 +25,7 @@ validate(){
 }
 Check_Root
 dnf list installed git
-validate $? "${Normal} git was ..!" &>>log
+validate $? "${Normal} git was ..!" 
 if [ $? -ne 0 ]; then
     echo -e " ${Red}ERROR git was not installed on your device let us install git"
     dnf install git -y
@@ -35,7 +35,7 @@ if [ $? -ne 0 ]; then
     # else
     #     echo " git installed succcessfully"
     # fi
-    validate $? "${Normal} git installation" &>>log
+    validate $? "${Normal} git installation" 
 else
     echo -e " ${Green}SUCCESS git was already iinstalled"
 fi
