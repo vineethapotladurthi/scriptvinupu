@@ -13,7 +13,7 @@ Check_Root(){
     fi
 }
 validate(){
-    if($1 -ne 0); then
+    if [ $1 -ne 0 ]; then
      echo "$2 failedd.......!"
      exit 1
     else
