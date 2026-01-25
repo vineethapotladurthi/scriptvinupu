@@ -8,7 +8,9 @@ LOGFILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 R='\033[0;31m'
 G='\033[0;32m'   #'\e[32m'
 N='\033[0m'
-
+Check_Root
+# dnf list installed git
+validate $? "$package was ..!"
 
 # if [ $USERID -ne 0 ]; then
 #     echo "you have to run the script under root previleges.."
@@ -27,9 +29,7 @@ validate(){
         echo -e "$G $2 here you go successfully...."&>>LOGFILE
     fi
 }
-Check_Root
-# dnf list installed git
-validate $? "$package was ..!"
+
 for package in $@
 do 
     dnf list installed $package
