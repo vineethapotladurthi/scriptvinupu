@@ -33,22 +33,22 @@ validate(){
 
 for package in $@
 do 
-    dnf list installed $package
-    echo "the  pakacge are $package" &>>LOGFILE
-done
-if [ $? -ne 0 ]; then
-    echo -e " $R $package was not installed on your device let us install $package"&>>LOGFILE
-    dnf install $package -y
+        echo "the  pakacge are $package" &>>LOGFILE
+        dnf list installed $package
+    if [ $? -ne 0 ]; then
+        echo -e " $R $package was not installed on your device let us install $package"&>>LOGFILE
+        dnf install $package -y
     # if [ $? -ne 0 ]; then
     #     echo "git installation was not success"
     #     exit 1
     # else
     #     echo " git installed succcessfully"
     # fi
-    validate $? "$package installation"
-else
-    echo  -e "$N $package was already iinstalled"&>>LOGFILE
-fi
+        validate $? "$package installation"
+    else
+        echo  -e "$N $package was already iinstalled"&>>LOGFILE
+    fi
+done
 
 # dnf list installed mysql
 

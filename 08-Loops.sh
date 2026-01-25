@@ -17,7 +17,7 @@ validate(){
      echo "$2 failedd.......!"
      exit 1
     else
-        echo "$2 here you go successfully...."
+        echo "$2 here you go...."
     fi
 }
 Check_Root
@@ -25,22 +25,22 @@ Check_Root
 
 for package in $@
 do 
-    dnf list installed $package
-    echo "the  pakacge are $package"
-done
-validate $? "$package was ..!"
-if [ $? -ne 0 ]; then
-    echo " $package was not installed on your device let us install $package"
-    dnf install $package -y
+        echo "the  pakacge are $package"
+        dnf list installed $package
+    if [ $? -ne 0 ]; then
+        echo " $package was not installed on your device let us install $package"
+        dnf install $package -y
+        validate $? "$package installing"
     # if [ $? -ne 0 ]; then
     #     echo "git installation was not success"
     #     exit 1
     # else
     #     echo " git installed succcessfully"
     # fi
-else
-    echo " $package was already iinstalled"
-fi
+        else
+            echo " $package was already iinstalled"
+    fi
+done
 
 # dnf list installed mysql
 
