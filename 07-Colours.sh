@@ -19,6 +19,7 @@ Check_Root(){
 validate(){
     if($1 -ne 0); then
      echo -e "$2 ${Red}ERROR failedd.......!"
+     exit 1
     else
         echo -e "$2 ${Green}SUCCESS here you go successfully...."
     fi
