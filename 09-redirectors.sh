@@ -13,26 +13,25 @@ LOGFILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 # fi
 Check_Root(){
     if [ $USERID -ne 0 ]; then
-     echo -e " $R you have to run the script under root previleges.." &>>LOGFILE
+     echo -e " ${R} you have to run the script under root previleges.." &>>$LOGFILE
      exit 1
     fi
 }
 validate(){
     if($1 -ne 0); then
-     echo -e "$R $2 failedd.......!"&>>LOGFILE
+     echo -e "${R} $2 failedd.......!" | tee -a $LOGFILE
      exit 1
     else
-        echo -e "$G $2 here you go successfully...."&>>LOGFILE
+        echo -e "${G} $2 here you go successfully...."&>>$LOGFILE
     fi
 }
-Check_Root
-
+Check_Root 
 for package in $@
 do 
-        echo "the  pakacge are $package" &>>LOGFILE
+        echo "the  pakacge are $package" &>>$LOGFILE
         dnf list installed $package
     if [ $? -ne 0 ]; then
-        echo -e " $R $package was not installed on your device let us install $package"&>>LOGFILE
+        echo -e " ${R} $package was not installed on your device let us install $package"&>>LOGFILE
         dnf install $package -y
     # if [ $? -ne 0 ]; then
     #     echo "git installation was not success"
@@ -42,7 +41,7 @@ do
     # fi
         validate $? "$package installation"
     else
-        echo  -e "$N $package was already iinstalled"&>>LOGFILE
+        echo  -e "${N} $package was already iinstalled" | tee -a $LOGFILE
     fi
 done
 
