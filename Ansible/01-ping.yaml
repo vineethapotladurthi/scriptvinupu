@@ -1,0 +1,6 @@
+- name: ping the server
+  hosts: web #which hosts ur ansible wants
+  tasks: #listing the tasks ,modules,collections
+  - name: ping the server
+    ansible.builtin.ping:
+    msg: "respondinnnng.......! the server"
